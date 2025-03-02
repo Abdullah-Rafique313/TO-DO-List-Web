@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial;
+    background: rgb(187, 187, 187);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    justify-content: flex-start;
+    height: 80vh;
+    width: 500px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #292929;
+}
+
+#title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.sOne{
+    display: flex;
+    background-color: skyblue;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.sOne input{
+    padding: 10px;
+    font-size: 14px;
+    width: 80%;
+}
+.sOne button{
+    padding: 10px;
+    width: 20%;
+    cursor: pointer;
+}
+.sTwo{
+    margin-top: 20px;
+}
+.container h3{
+    text-align: center;
+    padding: 10px;
+    color: crimson;
+    text-transform: capitalize;
+}
+.sTwo{
+    display: flex;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid deepskyblue;
+    height: 400px;
+    overflow: scroll;
+}
+#list{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+#list li{
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid;
+}
+.removebtn{
+    position: absolute;
+    right: 20px;
+    padding: 2px 8px 3px 8px;
+    background-color: crimson;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
