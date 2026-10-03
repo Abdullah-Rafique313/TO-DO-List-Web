@@ -1,84 +1,287 @@
-*{
+* {
     margin: 0;
     padding: 0;
-}
-body{
-    font-family: Arial;
-    background: rgb(187, 187, 187);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.container{
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    justify-content: flex-start;
-    height: 80vh;
-    width: 500px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #292929;
+    box-sizing: border-box;
 }
 
-#title {
-    margin-top: 20px;
-    margin-bottom: 20px;
+:root {
+    --black: #111111;
+    --dark-gray: #4b4b4b;
+    --gray: #8d8d8d;
+    --line: #e6e6e6;
+    --soft-line: #f1f1f1;
+    --soft-bg: #fafafa;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
     display: flex;
+    align-items: center;
     justify-content: center;
+    background: #f7f7f7;
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
 }
-.sOne{
-    display: flex;
-    background-color: skyblue;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-.sOne input{
-    padding: 10px;
-    font-size: 14px;
-    width: 80%;
-}
-.sOne button{
-    padding: 10px;
-    width: 20%;
-    cursor: pointer;
-}
-.sTwo{
-    margin-top: 20px;
-}
-.container h3{
-    text-align: center;
-    padding: 10px;
-    color: crimson;
-    text-transform: capitalize;
-}
-.sTwo{
-    display: flex;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid deepskyblue;
-    height: 400px;
-    overflow: scroll;
-}
-#list{
-    position: relative;
+
+.wrapper {
     width: 100%;
-    padding: 20px;
+    max-width: 460px;
 }
-#list li{
-    padding: 10px 0 10px 0;
-    border-bottom: 1px solid;
+
+.container {
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
 }
-.removebtn{
-    position: absolute;
-    right: 20px;
-    padding: 2px 8px 3px 8px;
-    background-color: crimson;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+
+
+header {
+    padding: 42px 28px 30px;
+    border-bottom: 2px solid var(--black);
+}
+
+header h1 {
+    color: var(--black);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -2px;
+    text-transform: lowercase;
+}
+
+
+.input-group {
+    display: flex;
+    min-height: 64px;
+    border-bottom: 1px solid var(--line);
+    background: var(--white);
+}
+
+.input-group input {
+    width: 100%;
+    min-width: 0;
+    padding: 0 20px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--black);
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.input-group input::placeholder {
+    color: #9b9b9b;
+}
+
+.input-group input:focus {
+    background: #fcfcfc;
+}
+
+#addNote {
+    width: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-left: 1px solid var(--black);
+    background: var(--black);
+    color: var(--white);
     cursor: pointer;
+    transition: background-color 0.18s ease;
+}
+
+#addNote:hover {
+    background: #353535;
+}
+
+#addNote:active {
+    background: #000000;
+}
+
+#addNote svg {
+    pointer-events: none;
+}
+
+.list-container {
+    position: relative;
+    min-height: 285px;
+    max-height: 420px;
+    overflow-y: auto;
+    background: var(--white);
+}
+
+#list {
+    list-style: none;
+}
+
+#list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 62px;
+    padding: 12px 20px 12px 24px;
+    border-bottom: 1px solid var(--soft-line);
+    background: var(--white);
+    transition:
+        background-color 0.18s ease,
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+#list li:hover {
+    background: var(--soft-bg);
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--black);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.removebtn {
+    flex-shrink: 0;
+    padding: 7px 12px;
+    border: 1px solid #d8d8d8;
+    background: var(--white);
+    color: #6f6f6f;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    line-height: 1;
+    text-transform: uppercase;
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.removebtn:hover {
+    border-color: var(--black);
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+.removebtn:active {
+    background: #3d3d3d;
+    border-color: #3d3d3d;
+    color: var(--white);
+    transform: translateY(0);
+}
+
+.empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #b4b4b4;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.empty p {
+    font-size: 13px;
+    letter-spacing: 0.1px;
+    text-transform: lowercase;
+}
+
+#list:empty ~ .empty {
+    display: block;
+}
+
+#list:not(:empty) ~ .empty {
+    display: none;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border-top: 1px solid var(--line);
+    background: #fafafa;
+}
+
+#taskCount {
+    color: #858585;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.list-container::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+.list-container::-webkit-scrollbar-thumb {
+    background: #d5d5d5;
+}
+
+.list-container::-webkit-scrollbar-thumb:hover {
+    background: #ababab;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 0;
+        align-items: stretch;
+        background: var(--white);
+    }
+
+    .wrapper {
+        max-width: none;
+    }
+
+    .container {
+        min-height: 100vh;
+        border: 0;
+        box-shadow: none;
+    }
+
+    header {
+        padding: 38px 22px 28px;
+    }
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    .input-group {
+        min-height: 60px;
+    }
+
+    .input-group input {
+        padding: 0 18px;
+    }
+
+    #addNote {
+        width: 60px;
+    }
+
+    .list-container {
+        min-height: 360px;
+        max-height: calc(100vh - 220px);
+    }
+
+    #list li {
+        padding: 12px 18px 12px 20px;
+    }
+
+    footer {
+        padding: 0 20px;
+    }
 }
