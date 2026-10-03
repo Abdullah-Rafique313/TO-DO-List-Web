@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List App</title>
+    <title>Tasks</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div>
-            <h2 id="title">Welcome To My To-Do List App</h2>
-        </div>
-        <div class="sOne">
-            <input type="text" placeholder="Write Text Here" name="" id="Userinput">
-            <button id="addNote">Add Note</button>
-        </div>
-        <div class="sTwo">
-            <ol type="1" id="list"></ol>
+    <div class="wrapper">
+        <div class="container">
+            <header>
+                <h1>tasks.</h1>
+            </header>
+
+            <div class="input-group">
+                <input type="text" id="Userinput" placeholder="add a task..." autocomplete="off">
+                <button id="addNote">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="list-container">
+                <ol id="list"></ol>
+                <div id="emptyState" class="empty">
+                    <p>no tasks</p>
+                </div>
+            </div>
+
+            <footer>
+                <span id="taskCount">0</span>
+            </footer>
         </div>
     </div>
 
