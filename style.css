@@ -5,13 +5,10 @@
 }
 
 :root {
-    --black: #111111;
-    --dark-gray: #4b4b4b;
-    --gray: #8d8d8d;
+    --black: #111;
     --line: #e6e6e6;
-    --soft-line: #f1f1f1;
-    --soft-bg: #fafafa;
-    --white: #ffffff;
+    --soft: #fafafa;
+    --white: #fff;
 }
 
 body {
@@ -37,27 +34,22 @@ body {
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
 }
 
-
 header {
     padding: 42px 28px 30px;
     border-bottom: 2px solid var(--black);
 }
 
 header h1 {
-    color: var(--black);
     font-size: 42px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: -2px;
-    text-transform: lowercase;
 }
-
 
 .input-group {
     display: flex;
     min-height: 64px;
     border-bottom: 1px solid var(--line);
-    background: var(--white);
 }
 
 .input-group input {
@@ -65,45 +57,29 @@ header h1 {
     min-width: 0;
     padding: 0 20px;
     border: 0;
-    outline: none;
-    background: transparent;
+    outline: 0;
     color: var(--black);
-    font-family: inherit;
-    font-size: 15px;
+    background: var(--white);
+    font: 15px Arial, Helvetica, sans-serif;
 }
 
 .input-group input::placeholder {
-    color: #9b9b9b;
-}
-
-.input-group input:focus {
-    background: #fcfcfc;
+    color: #999;
 }
 
 #addNote {
     width: 64px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 0;
     border-left: 1px solid var(--black);
     background: var(--black);
     color: var(--white);
     cursor: pointer;
-    transition: background-color 0.18s ease;
+    font-size: 24px;
+    transition: background 0.18s ease;
 }
 
 #addNote:hover {
-    background: #353535;
-}
-
-#addNote:active {
-    background: #000000;
-}
-
-#addNote svg {
-    pointer-events: none;
+    background: #444;
 }
 
 .list-container {
@@ -111,7 +87,6 @@ header h1 {
     min-height: 285px;
     max-height: 420px;
     overflow-y: auto;
-    background: var(--white);
 }
 
 #list {
@@ -124,23 +99,18 @@ header h1 {
     gap: 14px;
     min-height: 62px;
     padding: 12px 20px 12px 24px;
-    border-bottom: 1px solid var(--soft-line);
-    background: var(--white);
-    transition:
-        background-color 0.18s ease,
-        opacity 0.18s ease,
-        transform 0.18s ease;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
 }
 
 #list li:hover {
-    background: var(--soft-bg);
+    background: var(--soft);
 }
 
 .task-text {
     flex: 1;
     min-width: 0;
     overflow-wrap: anywhere;
-    color: var(--black);
     font-size: 14px;
     line-height: 1.45;
 }
@@ -150,19 +120,12 @@ header h1 {
     padding: 7px 12px;
     border: 1px solid #d8d8d8;
     background: var(--white);
-    color: #6f6f6f;
+    color: #666;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 10px;
-    font-weight: 700;
+    font: 700 10px Arial, Helvetica, sans-serif;
     letter-spacing: 0.7px;
-    line-height: 1;
     text-transform: uppercase;
-    transition:
-        background-color 0.18s ease,
-        color 0.18s ease,
-        border-color 0.18s ease,
-        transform 0.18s ease;
+    transition: 0.18s ease;
 }
 
 .removebtn:hover {
@@ -173,9 +136,6 @@ header h1 {
 }
 
 .removebtn:active {
-    background: #3d3d3d;
-    border-color: #3d3d3d;
-    color: var(--white);
     transform: translateY(0);
 }
 
@@ -184,18 +144,8 @@ header h1 {
     top: 50%;
     left: 50%;
     color: #b4b4b4;
-    text-align: center;
-    transform: translate(-50%, -50%);
-}
-
-.empty p {
     font-size: 13px;
-    letter-spacing: 0.1px;
-    text-transform: lowercase;
-}
-
-#list:empty ~ .empty {
-    display: block;
+    transform: translate(-50%, -50%);
 }
 
 #list:not(:empty) ~ .empty {
@@ -203,12 +153,10 @@ header h1 {
 }
 
 footer {
-    display: flex;
-    align-items: center;
     min-height: 46px;
-    padding: 0 24px;
+    padding: 15px 24px;
     border-top: 1px solid var(--line);
-    background: #fafafa;
+    background: var(--soft);
 }
 
 #taskCount {
@@ -223,22 +171,13 @@ footer {
     width: 6px;
 }
 
-.list-container::-webkit-scrollbar-track {
-    background: var(--white);
-}
-
 .list-container::-webkit-scrollbar-thumb {
     background: #d5d5d5;
-}
-
-.list-container::-webkit-scrollbar-thumb:hover {
-    background: #ababab;
 }
 
 @media (max-width: 520px) {
     body {
         padding: 0;
-        align-items: stretch;
         background: var(--white);
     }
 
@@ -260,28 +199,8 @@ footer {
         font-size: 38px;
     }
 
-    .input-group {
-        min-height: 60px;
-    }
-
-    .input-group input {
-        padding: 0 18px;
-    }
-
-    #addNote {
-        width: 60px;
-    }
-
     .list-container {
         min-height: 360px;
         max-height: calc(100vh - 220px);
-    }
-
-    #list li {
-        padding: 12px 18px 12px 20px;
-    }
-
-    footer {
-        padding: 0 20px;
     }
 }
